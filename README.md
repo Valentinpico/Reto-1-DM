@@ -2,6 +2,8 @@
 
 Un CRUD simple de usuarios con FastAPI y MongoDB. Hice este proyecto para practicar async/await, manejo de errores personalizados y respuestas estandarizadas.
 
+**🌐 Desplegado en:** https://reto-1-digital-mind-production.up.railway.app/docs
+
 ## 🛠️ Tecnologías
 - FastAPI (async/await)
 - MongoDB con motor (driver asíncrono)
@@ -389,26 +391,6 @@ curl -X POST http://localhost:8000/users/ \
 El script de "Crear Usuario" guarda automáticamente el `userId` en las variables de entorno, así que los demás requests lo usan directamente.
 
 ---
-
-## � Desplegar en Railway
-
-Railway es súper fácil para desplegar aplicaciones en producción.
-
-### Pasos rápidos:
-1. Crea cuenta en https://railway.app (con GitHub)
-2. New Project → Deploy MongoDB
-3. Copia la URL de conexión de MongoDB
-4. New Service → GitHub Repo → Selecciona este repo
-5. En Variables, agrega:
-   - `MONGODB_URL` = la URL que copiaste
-   - `LOG_LEVEL` = INFO
-6. Settings → Generate Domain
-7. ¡Listo! Tu API está en: `https://tu-app.up.railway.app/docs`
-
-**Guía detallada**: Ver archivo `_DEPLOY_RAILWAY.md`
-
----
-
 ## �💡 Notas
 
 - Las contraseñas siempre se encriptan con bcrypt
