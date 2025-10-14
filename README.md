@@ -390,13 +390,33 @@ El script de "Crear Usuario" guarda automáticamente el `userId` en las variable
 
 ---
 
-## 💡 Notas
+## � Desplegar en Railway
+
+Railway es súper fácil para desplegar aplicaciones en producción.
+
+### Pasos rápidos:
+1. Crea cuenta en https://railway.app (con GitHub)
+2. New Project → Deploy MongoDB
+3. Copia la URL de conexión de MongoDB
+4. New Service → GitHub Repo → Selecciona este repo
+5. En Variables, agrega:
+   - `MONGODB_URL` = la URL que copiaste
+   - `LOG_LEVEL` = INFO
+6. Settings → Generate Domain
+7. ¡Listo! Tu API está en: `https://tu-app.up.railway.app/docs`
+
+**Guía detallada**: Ver archivo `_DEPLOY_RAILWAY.md`
+
+---
+
+## �💡 Notas
 
 - Las contraseñas siempre se encriptan con bcrypt
 - Los passwords nunca se devuelven en las respuestas
 - Todas las respuestas tienen el mismo formato (success, statusCode, message, data)
 - El middleware mide el tiempo de cada request
 - Logs con emojis para ver qué está pasando
+- Todo configurado con variables de entorno (ver `_VARIABLES.md`)
 
 ---
 
