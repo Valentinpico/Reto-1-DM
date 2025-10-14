@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: user_service_mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: userdb
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - user_service_network
+
+  api:
+    build: .
+    container_name: user_service_api
+    ports:
+      - "8000:8000"
+    environment:
+      MONGODB_URL: mongodb://mongodb:27017/userdb
+      LOG_LEVEL: INFO
+    depends_on:
+      - mongodb
+    networks:
+      - user_service_network
+    restart: unless-stopped
+
+volumes:
+  mongodb_data:
+
+networks:
+  user_service_network:
+    driver: bridge
